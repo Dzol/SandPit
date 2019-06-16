@@ -15,7 +15,9 @@ GOLExamples >> aliveCell [
 { #category : #example }
 GOLExamples >> cell [
 	<gtExample>
-	^ { self aliveCell . self deadCell } atRandom
+	^ GOLCellBlocElement new
+		cell: GOLCell subclasses atRandom new;
+		colorMe
 ]
 
 { #category : #example }
