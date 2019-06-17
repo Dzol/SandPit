@@ -1,3 +1,6 @@
+"
+A Bloc element for a cell in the Game of Life
+"
 Class {
 	#name : #GOLCellBlocElement,
 	#superclass : #BlElement,

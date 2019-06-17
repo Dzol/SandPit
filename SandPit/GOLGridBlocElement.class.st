@@ -1,3 +1,6 @@
+"
+A Bloc element for the grid in a Game of Life
+"
 Class {
 	#name : #GOLGridBlocElement,
 	#superclass : #BlElement,

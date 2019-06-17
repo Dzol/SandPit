@@ -1,15 +1,18 @@
+"
+A Heat Map for neighbouring cells in the Game of Life
+"
 Class {
 	#name : #GOLNeighbourHeatMap,
 	#superclass : #BlElement,
 	#instVars : [
-		'grid'
+		'grid',
+		'colorSwatch'
 	],
 	#category : #SandPit
 }
 
 { #category : #initialization }
 GOLNeighbourHeatMap >> initialize [
-	| colorSwatch |
 	colorSwatch := Color red lightShades: 9.
 	super initialize.
 	self size: (16 * 32) asPoint;
@@ -17,5 +20,21 @@ GOLNeighbourHeatMap >> initialize [
 		background: Color veryLightGray.
 	grid := GOLGrid new.
 	grid neigbourGrid
-		do: [ :count | self addChild: (BlTextElement new background: (colorSwatch at: (count+1)); size: 16 asPoint; text: count asRopedText) ]
+		do: [ :count | self addChild: (self initializeSquareElement: count) ]
+]
+
+{ #category : #initialization }
+GOLNeighbourHeatMap >> initializeNumeralElement: aNatural [
+	^ BlTextElement new
+		text: aNatural asRopedText;
+		constraintsDo: [ :c | c frame horizontal alignCenter. c frame vertical alignCenter. ]
+]
+
+{ #category : #initialization }
+GOLNeighbourHeatMap >> initializeSquareElement: count [
+	^ BlElement new
+		background: (colorSwatch at: (count+1));
+		size: 16 asPoint;
+		layout: BlFrameLayout new;
+		addChild: (self initializeNumeralElement: count)
 ]

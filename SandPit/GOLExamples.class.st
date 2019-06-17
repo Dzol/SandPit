@@ -1,3 +1,6 @@
+"
+GT examples for the GoL
+"
 Class {
 	#name : #GOLExamples,
 	#superclass : #Object,
