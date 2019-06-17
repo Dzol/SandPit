@@ -35,6 +35,14 @@ GOLGrid >> grid: anObject [
 
 ]
 
+{ #category : #inspection }
+GOLGrid >> gtGOLGridViewFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Blob';
+		stencil: [ GOLGridBlocElement new grid: self grid ]
+]
+
 { #category : #initialize }
 GOLGrid >> initialize [
 
@@ -57,12 +65,12 @@ GOLGrid >> neighbours: aPoint [
 
 { #category : #access }
 GOLGrid >> niceIndexColumn: aNatural [
-	^ (aNatural % (self grid columnCount - 1)) + 1
+	^ ((aNatural - 1) % (self grid columnCount)) + 1
 ]
 
 { #category : #access }
 GOLGrid >> niceIndexRow: aNatural [
-	^ (aNatural % (self grid rowCount - 1)) + 1
+	^ ((aNatural - 1) % (self grid rowCount)) + 1
 ]
 
 { #category : #access }
@@ -73,6 +81,7 @@ GOLGrid >> surrounding8Cells: aPoint [
 
 { #category : #access }
 GOLGrid >> surrounding8Indices: aPoint [
+	self assert: (self class surrounding8Deltas size) equals: 8.
 	^ self class surrounding8Deltas
 		collect: [ :delta | (self niceIndexColumn: (aPoint x + delta x)) @ (self niceIndexRow: (aPoint y + delta y)) ]
 ]

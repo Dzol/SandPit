@@ -40,5 +40,5 @@ GOLExamples >> grid [
 { #category : #example }
 GOLExamples >> neigbourGrid [ 
 	<gtExample>
-	^ GOLNeighbourHeatMap new
+	^ GOLNeighbourHeatMap new grid: GOLGrid new
 ]

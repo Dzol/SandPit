@@ -22,7 +22,11 @@ GOLGridBlocElement >> grid [
 
 { #category : #access }
 GOLGridBlocElement >> grid: anObject [
-	grid := anObject
+	grid := anObject.
+	self removeChildren.
+	self grid
+		do: [ :cell | self addChild: (GOLCellBlocElement new cell: cell) colorMe ].
+	self assert: self childrenCount equals: (32*32)
 ]
 
 { #category : #initialization }

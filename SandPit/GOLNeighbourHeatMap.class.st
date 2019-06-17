@@ -11,16 +11,31 @@ Class {
 	#category : #SandPit
 }
 
+{ #category : #action }
+GOLNeighbourHeatMap >> colorMe [
+	grid neigbourGrid
+		do: [ :count | self addChild: (self initializeSquareElement: count) ].
+	self assert: self childrenCount equals: (32*32)
+]
+
+{ #category : #access }
+GOLNeighbourHeatMap >> grid [
+	^ grid
+]
+
+{ #category : #access }
+GOLNeighbourHeatMap >> grid: aGOLGrid [
+	grid := aGOLGrid.
+	self colorMe
+]
+
 { #category : #initialization }
 GOLNeighbourHeatMap >> initialize [
 	colorSwatch := Color red lightShades: 9.
 	super initialize.
 	self size: (16 * 32) asPoint;
-		layout: (BlGridLayout new columnCount: 32);
-		background: Color veryLightGray.
-	grid := GOLGrid new.
-	grid neigbourGrid
-		do: [ :count | self addChild: (self initializeSquareElement: count) ]
+		layout: (BlGridLayout new columnCount: 32; rowCount: 32);
+		background: Color veryLightGray
 ]
 
 { #category : #initialization }
