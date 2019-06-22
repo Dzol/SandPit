@@ -13,9 +13,8 @@ Class {
 
 { #category : #action }
 GOLNeighbourHeatMap >> colorMe [
-	grid neigbourGrid
-		do: [ :count | self addChild: (self initializeSquareElement: count) ].
-	self assert: self childrenCount equals: (32*32)
+	grid collectNeigbourGrid
+		do: [ :count | self addChild: (self initializeSquareElement: count) ]
 ]
 
 { #category : #access }

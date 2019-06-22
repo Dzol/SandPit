@@ -22,8 +22,13 @@ GOLGrid class >> surrounding8Deltas [
 { #category : #action }
 GOLGrid >> advance [
 	| neigbourCount |
-	neigbourCount := self neigbourGrid.
+	neigbourCount := self collectNeigbourGrid.
 	^ self grid: (grid indicesCollect: [ :i :j | (grid at: i at: j) advance: (neigbourCount at: i at: j) ])
+]
+
+{ #category : #access }
+GOLGrid >> collectNeigbourGrid [
+	^ self grid indicesCollect: [ :i :j | self neighbours: i@j ]
 ]
 
 { #category : #enumeration }
@@ -65,11 +70,6 @@ GOLGrid >> initialize [
 	grid := Array2D new: 32.
 	grid := grid collect: [ :_ | { GOLAliveCell . GOLDeadCell } atRandom new ]
 
-]
-
-{ #category : #access }
-GOLGrid >> neigbourGrid [
-	^ self grid indicesCollect: [ :i :j | self neighbours: i@j ]
 ]
 
 { #category : #access }
