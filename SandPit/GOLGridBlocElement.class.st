@@ -12,7 +12,8 @@ Class {
 
 { #category : #action }
 GOLGridBlocElement >> advance [
-	self grid advance
+	self removeChildren.
+	self grid: (self grid advance do: [ :cell | self addChild: (GOLCellBlocElement new cell: cell) colorMe ]).
 ]
 
 { #category : #access }
@@ -37,5 +38,6 @@ GOLGridBlocElement >> initialize [
 		background: Color white.
 	self grid: GOLGrid new.
 	self grid
-		do: [ :cell | self addChild: (GOLCellBlocElement new cell: cell) colorMe ]
+		do: [ :cell | self addChild: (GOLCellBlocElement new cell: cell) colorMe ].
+	self addEventHandlerOn: BlMouseDownEvent do: [ :event | self advance ]
 ]

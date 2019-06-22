@@ -19,6 +19,13 @@ GOLGrid class >> surrounding8Deltas [
 		yourself
 ]
 
+{ #category : #action }
+GOLGrid >> advance [
+	| neigbourCount |
+	neigbourCount := self neigbourGrid.
+	^ self class new grid: (grid indicesCollect: [ :i :j | (grid at: i at: j) advance: (neigbourCount at: i at: j) ])
+]
+
 { #category : #enumeration }
 GOLGrid >> do: aBlock [
 	self grid do: aBlock
@@ -40,7 +47,15 @@ GOLGrid >> gtGOLGridViewFor: aView [
 	<gtView>
 	^ aView explicit
 		title: 'Blob';
-		stencil: [ GOLGridBlocElement new grid: self grid ]
+		stencil: [ GOLGridBlocElement new grid: self ]
+]
+
+{ #category : #inspection }
+GOLGrid >> gtGOLNeighbourHeatMapViewFor: aView [
+	<gtView>
+	^ aView explicit
+		title: 'Neighbour Heat Map';
+		stencil: [ GOLNeighbourHeatMap new grid: self ]
 ]
 
 { #category : #initialize }

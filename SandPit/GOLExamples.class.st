@@ -34,7 +34,7 @@ GOLExamples >> deadCell [
 { #category : #example }
 GOLExamples >> grid [
 	<gtExample>
-	^ GOLGridBlocElement new
+	^ GOLGrid new
 ]
 
 { #category : #example }
