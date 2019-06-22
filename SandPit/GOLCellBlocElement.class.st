@@ -22,15 +22,12 @@ GOLCellBlocElement >> cell: anObject [
 
 { #category : #action }
 GOLCellBlocElement >> colorMe [
-	^ cell
-		ifAlive: [ self background: Color red ]
-		ifDead: [ self background: Color lightGray ]
+	^ self background: (cell ifAlive: [ Color red ] ifDead: [ Color lightGray ])
 ]
 
 { #category : #initialize }
 GOLCellBlocElement >> initialize [
 	super initialize.
 	self geometry: BlCircle new;
-		size: 16 asPoint;
-		background: Color red
+		size: 16 asPoint
 ]

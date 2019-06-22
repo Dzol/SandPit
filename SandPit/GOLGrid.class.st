@@ -23,7 +23,7 @@ GOLGrid class >> surrounding8Deltas [
 GOLGrid >> advance [
 	| neigbourCount |
 	neigbourCount := self neigbourGrid.
-	^ self class new grid: (grid indicesCollect: [ :i :j | (grid at: i at: j) advance: (neigbourCount at: i at: j) ])
+	^ self grid: (grid indicesCollect: [ :i :j | (grid at: i at: j) advance: (neigbourCount at: i at: j) ])
 ]
 
 { #category : #enumeration }
