@@ -11,10 +11,12 @@ Class {
 { #category : #update }
 GOLDeadCell >> advance: neighbourCount [
 
-	| birth |
+	(self birth: neighbourCount) ifTrue: [ ^ GOLAliveCell new ]
+]
 
-	birth := neighbourCount == 3.
-	birth ifTrue: [ ^ GOLAliveCell new ]
+{ #category : #rule }
+GOLDeadCell >> birth: anInteger [
+	^ anInteger == 3
 ]
 
 { #category : #abstract }
