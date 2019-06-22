@@ -11,19 +11,14 @@ Class {
 { #category : #update }
 GOLAliveCell >> advance: neighbourCount [
 
-	(self going2Die: neighbourCount) ifTrue: [ ^ GOLDeadCell new ].
-	(self going2Survive: neighbourCount) ifTrue: [ ^ self ]
+	(self going2Die: neighbourCount) ifTrue: [ ^ GOLDeadCell new ]
+	
 
 ]
 
 { #category : #abstract }
 GOLAliveCell >> going2Die: anInteger [
 	^ (self underPop: anInteger) or: (self overPop: anInteger)
-]
-
-{ #category : #abstract }
-GOLAliveCell >> going2Survive: anInteger [
-	^ (anInteger == 2) or: (anInteger == 3)
 ]
 
 { #category : #abstract }
