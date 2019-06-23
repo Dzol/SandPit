@@ -1,5 +1,5 @@
 "
-A package w/ which to learn Pharo and GT
+A package with which to learn Pharo and GT
 "
 Class {
 	#name : #ManifestSandPit,
