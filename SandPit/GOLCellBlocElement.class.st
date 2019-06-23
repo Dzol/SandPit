@@ -17,7 +17,8 @@ GOLCellBlocElement >> cell [
 
 { #category : #access }
 GOLCellBlocElement >> cell: anObject [
-	cell := anObject
+	cell := anObject.
+	self colorMe
 ]
 
 { #category : #action }

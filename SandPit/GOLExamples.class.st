@@ -11,24 +11,20 @@ Class {
 GOLExamples >> aliveCell [
 	<gtExample>
 	^ GOLCellBlocElement new
-		cell: GOLAliveCell new;
-		colorMe
+		cell: GOLAliveCell new
 ]
 
 { #category : #example }
 GOLExamples >> cell [
 	<gtExample>
-	^ GOLCellBlocElement new
-		cell: GOLCell subclasses atRandom new;
-		colorMe
+	^ { self aliveCell . self deadCell } atRandom
 ]
 
 { #category : #example }
 GOLExamples >> deadCell [
 	<gtExample>
 	^ GOLCellBlocElement new
-		cell: GOLDeadCell new;
-		colorMe
+		cell: GOLDeadCell new
 ]
 
 { #category : #example }
