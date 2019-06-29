@@ -10,9 +10,19 @@ Class {
 	#category : #'SandPit-Models'
 }
 
+{ #category : #'instance creation' }
+BigEnSuccessor class >> of: aBigEn [
+	^ self new initializeWithPredecessor: aBigEn
+]
+
 { #category : #converting }
 BigEnSuccessor >> asInteger [
 	^ 1 + predecessor asInteger
+]
+
+{ #category : #initialization }
+BigEnSuccessor >> initializeWithPredecessor: aBigEn [
+	predecessor := aBigEn
 ]
 
 { #category : #operation }

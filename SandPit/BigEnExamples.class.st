@@ -10,7 +10,7 @@ Class {
 { #category : #example }
 BigEnExamples >> bigEnOne [
 	<gtExample>
-	^ BigEnSuccessor new predecessor: (self bigEnZero)
+	^ BigEnSuccessor of: (self bigEnZero)
 ]
 
 { #category : #example }
@@ -37,7 +37,7 @@ BigEnExamples >> bigEnPlusToThree [
 { #category : #example }
 BigEnExamples >> bigEnTwo [
 	<gtExample>
-	^ BigEnSuccessor new predecessor: (self bigEnOne)
+	^ BigEnSuccessor of: (self bigEnOne)
 ]
 
 { #category : #example }
