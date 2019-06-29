@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'grid'
 	],
-	#category : #SandPit
+	#category : #'SandPit-Models'
 }
 
 { #category : #action }

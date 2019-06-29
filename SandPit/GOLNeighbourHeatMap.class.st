@@ -8,7 +8,7 @@ Class {
 		'grid',
 		'colorSwatch'
 	],
-	#category : #SandPit
+	#category : #'SandPit-Models'
 }
 
 { #category : #action }

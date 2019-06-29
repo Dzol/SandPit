@@ -7,7 +7,7 @@ Class {
 	#instVars : [
 		'cell'
 	],
-	#category : #SandPit
+	#category : #'SandPit-Models'
 }
 
 { #category : #access }

@@ -5,7 +5,7 @@ A Live Cell in the Game of Life
 Class {
 	#name : #GOLAliveCell,
 	#superclass : #GOLCell,
-	#category : #SandPit
+	#category : #'SandPit-Models'
 }
 
 { #category : #update }
