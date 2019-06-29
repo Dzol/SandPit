@@ -10,7 +10,10 @@ Class {
 { #category : #example }
 BigEnExamples >> bigEnOne [
 	<gtExample>
-	^ BigEnSuccessor of: (self bigEnZero)
+	| x |
+	x := BigEnSuccessor of: (self bigEnZero).
+	self assert: x asInteger equals: 1.
+	^ x
 ]
 
 { #category : #example }
@@ -37,11 +40,17 @@ BigEnExamples >> bigEnPlusToThree [
 { #category : #example }
 BigEnExamples >> bigEnTwo [
 	<gtExample>
-	^ BigEnSuccessor of: (self bigEnOne)
+	| x |
+	x := BigEnSuccessor of: (self bigEnOne).
+	self assert: x asInteger equals: 2.
+	^ x
 ]
 
 { #category : #example }
 BigEnExamples >> bigEnZero [
 	<gtExample>
-	^ BigEnZero new
+	| x |
+	x := BigEnZero new.
+	self assert: x asInteger equals: 0.
+	^ x
 ]
