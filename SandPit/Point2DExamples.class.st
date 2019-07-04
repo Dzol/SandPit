@@ -1,5 +1,5 @@
 "
-GT examples for 2D Point
+I collect GT examples for 2D Point
 "
 Class {
 	#name : #Point2DExamples,
